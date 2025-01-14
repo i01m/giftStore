@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet"
+          asp-href-include="~/lib/bootstrap/bootstrap-4.0.0-dist/css/bootstrap.min.css" ,
+          asp-href-exclude=" ~/lib/bootstrap/bootstrap-4.0.0-dist/css/bootstrap-grid.css,~/lib/bootstrap/bootstrap-4.0.0-dist/css/bootstrap-reboot.css" />
+
+    <link rel="stylesheet" asp-href-include="~/lib/fontawesome-free-5.0.13/web-fonts-with-css/css/*.css"/>
+  
+    <title>GiftsForEveryone</title>
+</head>
+<body>
+    <div class="navbar navbar-dark bg-dark" role="navigation">
+        <a class="navbar-brand" href="#">GIFTS FOR EVERYONE</a>
+        @*<div class="col-4 text-right">*@
+        @await Component.InvokeAsync("CartSummary")
+        @*</div>  *@
+    </div>
+
+
+    <div class="row m-1 p-1">
+        <div id="categories" class="col-3">
+            @*the argument is the class name NavigationMenuViewComponent without the word ViewComponent*@
+           @await Component.InvokeAsync("NavigationMenu")
+        </div>
+        <div class="col-9">
+            @RenderBody()
+        </div>
+    </div>
+</body>
+</html>
